@@ -1,0 +1,311 @@
+/*
+ * WeChat Draft Bridge - OPC Blue
+ * Converted from markdown-here-opcblue.css for WeChat-safe CSS inlining.
+ * Use this file through the plugin's "Custom CSS file" setting or wechat-theme.
+ */
+
+/* Root typography */
+.wechat-article {
+  box-sizing: border-box;
+  color: #595959;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  letter-spacing: 0.2em;
+  padding: 20px 0;
+}
+
+.wechat-article p {
+  margin: 0 0 1.5em 0;
+  text-align: justify;
+}
+
+/* Accent elements */
+.wechat-article strong {
+  color: #3d7fff;
+  font-weight: 700;
+}
+
+.wechat-article em {
+  color: #3d7fff;
+  font-style: italic;
+}
+
+.wechat-article a {
+  color: #3d7fff;
+  text-decoration: underline;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.wechat-article del {
+  text-decoration: line-through;
+}
+
+/* Headings */
+.wechat-article h1,
+.wechat-article h2,
+.wechat-article h3,
+.wechat-article h4,
+.wechat-article h5,
+.wechat-article h6 {
+  margin: 1.2em 0;
+  padding: 0;
+  font-weight: 700;
+}
+
+.wechat-article h1 {
+  margin: 1.5em 0 1em;
+  padding-top: 0.5em;
+  border-top: 1px solid #cbdcff;
+  color: #3d7fff;
+  font-size: 32px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.wechat-article h2 {
+  margin: 2.5em 0 0.5em;
+  padding: 0;
+  border: 0;
+  color: #3d7fff;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+
+.wechat-article h3 {
+  margin: 0 0 2em;
+  padding: 0;
+  color: #595959;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.wechat-article h4 {
+  color: #3d7fff;
+  font-size: 20px;
+}
+
+.wechat-article h5,
+.wechat-article h6 {
+  color: #3d7fff;
+  font-size: 18px;
+}
+
+/* Quote and Obsidian callout */
+.wechat-article blockquote,
+.wechat-article .callout {
+  box-sizing: border-box;
+  margin: 1.5em 0;
+  padding: 14px 18px;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 4px solid #3d7fff;
+  border-radius: 4px;
+  background-color: #eff5ff;
+  color: #595959;
+}
+
+.wechat-article blockquote > p,
+.wechat-article .callout p {
+  margin: 0;
+}
+
+.wechat-article .callout-title {
+  margin-bottom: 8px;
+  color: #3d7fff;
+  font-weight: 700;
+}
+
+/* Lists: retain native WeChat markers for maximum compatibility */
+.wechat-article ul,
+.wechat-article ol {
+  margin: 1.2em 0;
+  padding-left: 2em;
+}
+
+.wechat-article li {
+  margin: 0.6em 0;
+  line-height: 1.8;
+}
+
+.wechat-article li p {
+  margin: 0.3em 0;
+}
+
+.wechat-article ul ul,
+.wechat-article ul ol,
+.wechat-article ol ul,
+.wechat-article ol ol {
+  margin: 0.4em 0;
+  padding-left: 1.5em;
+}
+
+/* Tables */
+.wechat-article table {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 1.5em 0;
+  font-size: 17px;
+}
+
+.wechat-article th,
+.wechat-article td {
+  box-sizing: border-box;
+  padding: 10px 14px;
+  border: 1px solid #3d7fff;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.wechat-article th {
+  border-bottom: 2px solid #2d6fe0;
+  background-color: #3d7fff;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Inline code */
+.wechat-article code {
+  padding: 2px 6px;
+  border-radius: 3px;
+  background-color: #eff5ff;
+  color: #315fb3;
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 16px;
+}
+
+/* Code blocks */
+.wechat-article pre {
+  margin: 1.5em 0;
+  padding: 14px 16px;
+  border: 1px solid #cbdcff;
+  border-left: 3px solid #3d7fff;
+  border-radius: 4px;
+  background-color: #f5f8ff;
+  color: #354052;
+  font-size: 16px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.wechat-article pre code {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: #354052;
+  font-size: 16px;
+}
+
+/* Images and divider */
+.wechat-article img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5em auto;
+}
+
+.wechat-article hr {
+  height: 0;
+  margin: 3.5em 0 1em;
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Reference heading: --- followed by **References:** */
+.wechat-article hr + p {
+  margin: 0 0 12px;
+  padding: 0;
+  color: #888888;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  text-align: left;
+}
+
+.wechat-article hr + p strong {
+  color: #888888;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.wechat-article hr + p + ol,
+.wechat-article hr + ol {
+  margin: 0;
+  padding-left: 3em;
+  color: #888888;
+  font-size: 14px;
+}
+
+.wechat-article hr + p + ol li,
+.wechat-article hr + ol li {
+  margin: 0 0 8px;
+  color: #888888;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.wechat-article hr + p + ol a,
+.wechat-article hr + ol a {
+  display: inline;
+  max-width: 100%;
+  color: #888888;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Optional raw HTML reference container */
+.wechat-article .mh-refs {
+  margin-top: 2.5em;
+  padding-top: 1.5em;
+  border-top: 1px solid #e5e5e5;
+}
+
+.wechat-article .mh-refs > p:first-child {
+  margin: 0 0 12px;
+  padding: 0;
+  color: #888888;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  text-align: left;
+}
+
+.wechat-article .mh-refs > p:first-child strong {
+  color: #888888;
+  font-weight: 700;
+}
+
+.wechat-article .mh-refs ol {
+  margin: 0;
+  padding-left: 3em;
+  color: #888888;
+  font-size: 14px;
+}
+
+.wechat-article .mh-refs li {
+  margin: 0 0 8px;
+  color: #888888;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.wechat-article .mh-refs a {
+  color: #888888;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
