@@ -6,7 +6,7 @@
 
 在 Obsidian 中排版、预览，并将当前笔记创建或更新到微信公众号草稿箱。
 
-![Version](https://img.shields.io/badge/version-0.3.0-576b95)
+![Version](https://img.shields.io/badge/version-0.3.1-576b95)
 ![Obsidian](https://img.shields.io/badge/Obsidian-%E2%89%A51.11.4-7c3aed)
 ![Platform](https://img.shields.io/badge/platform-desktop-4b5563)
 ![License](https://img.shields.io/badge/license-MIT-green)

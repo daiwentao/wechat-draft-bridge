@@ -2,6 +2,12 @@
 
 All notable changes to WeChat Draft Bridge are documented here.
 
+## 0.3.1
+
+- Fix existing-draft validation for the top-level `news_item` returned by WeChat `draft/get`.
+- Flatten paragraph wrappers inside list items before upload to prevent blank numbered entries in WeChat drafts.
+- Keep compatibility with gateways that return the nested `content.news_item` draft shape.
+
 ## 0.3.0
 
 - Save the WeChat draft ID to note frontmatter after successful creation.

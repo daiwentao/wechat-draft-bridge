@@ -1,8 +1,8 @@
 {
   "name": "wechat-draft-bridge",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
-  "description": "Preview and send Obsidian notes to WeChat Official Account drafts with reusable CSS themes and safe draft updates.",
+  "description": "Preview and send Markdown notes to WeChat Official Account drafts with reusable CSS themes and safe draft updates.",
   "type": "module",
   "scripts": {
     "build": "node esbuild.config.mjs production",

@@ -82,10 +82,19 @@ describe("WeChat API client", () => {
   it("reads an associated draft before replacement", async () => {
     const request = vi.fn()
       .mockResolvedValueOnce(response({ access_token: "fake-token", expires_in: 7200 }))
-      .mockResolvedValueOnce(response({ content: { news_item: [{ title: "原标题" }] } }));
+      .mockResolvedValueOnce(response({ news_item: [{ title: "原标题" }] }));
     const client = new WeChatApiClient("wx-test", "fake-secret-value", request);
 
     await expect(client.getDraftArticle("draft-media-id", 0)).resolves.toEqual({ title: "原标题" });
     expect((request.mock.calls[1]?.[0] as { url: string }).url).toContain("/cgi-bin/draft/get");
+  });
+
+  it("accepts the nested draft shape returned by some compatible gateways", async () => {
+    const request = vi.fn()
+      .mockResolvedValueOnce(response({ access_token: "fake-token", expires_in: 7200 }))
+      .mockResolvedValueOnce(response({ content: { news_item: [{ title: "兼容标题" }] } }));
+    const client = new WeChatApiClient("wx-test", "fake-secret-value", request);
+
+    await expect(client.getDraftArticle("draft-media-id", 0)).resolves.toEqual({ title: "兼容标题" });
   });
 });

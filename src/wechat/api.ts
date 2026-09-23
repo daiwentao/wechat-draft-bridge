@@ -155,8 +155,9 @@ export class WeChatApiClient {
     if (typeof data.errcode === "number" && data.errcode !== 0) {
       throw new WeChatApiError(messageForCode(data.errcode, `读取已关联草稿失败 ${data.errcode}：${data.errmsg ?? "未知错误"}`), "read", data.errcode);
     }
+    const directItems = data.news_item as Array<{ title?: string }> | undefined;
     const content = data.content as { news_item?: Array<{ title?: string }> } | undefined;
-    const article = content?.news_item?.[articleIndex];
+    const article = (directItems ?? content?.news_item)?.[articleIndex];
     if (!article) throw new WeChatApiError(`已关联草稿中不存在第 ${articleIndex + 1} 篇文章。`, "read");
     return { title: typeof article.title === "string" ? article.title : "" };
   }

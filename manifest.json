@@ -1,9 +1,11 @@
 {
   "id": "wechat-draft-bridge",
   "name": "WeChat Draft Bridge",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "minAppVersion": "1.11.4",
-  "description": "Preview and send Obsidian notes to WeChat Official Account drafts with reusable CSS themes and safe draft updates.",
+  "description": "Preview and send Markdown notes to WeChat Official Account drafts with reusable CSS themes and safe draft updates.",
   "author": "TimDai",
+  "authorUrl": "https://github.com/daiwentao",
+  "fundingUrl": "https://github.com/daiwentao/wechat-draft-bridge#%E6%94%AF%E6%8C%81%E9%A1%B9%E7%9B%AE",
   "isDesktopOnly": true
 }

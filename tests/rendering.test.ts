@@ -120,6 +120,14 @@ describe("styled mode primitives", () => {
     expect(result.html).toContain("<li>项目二</li>");
   });
 
+  it("flattens paragraphs inside list items for WeChat", () => {
+    const result = sanitizeWechatHtml(
+      '<ol><li><p>第一段</p><p>第二段</p></li><li><p><br></p></li></ol>'
+    );
+    expect(result.html).toBe("<ol><li>第一段<br>第二段</li></ol>");
+    expect(result.html).not.toContain("<li><p>");
+  });
+
   it("unwraps Obsidian blocks so reference sibling selectors can match", () => {
     const container = document.createElement("div");
     container.innerHTML = '<div class="el-hr"><hr></div><div class="el-p"><p><strong>参考资料：</strong></p></div><div class="el-ol"><ol><li><div class="list-bullet"></div></li><li><div class="list-bullet"></div>有效来源</li><li><br></li></ol></div>';

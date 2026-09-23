@@ -35,6 +35,21 @@ function cleanStyle(element: HTMLElement): void {
   if (!style.length) element.removeAttribute("style");
 }
 
+function flattenListItemParagraphs(document: Document): void {
+  for (const item of Array.from(document.body.querySelectorAll("li"))) {
+    const paragraphs = Array.from(item.children).filter((child) => child.tagName === "P");
+    for (const paragraph of paragraphs) {
+      const hasContentBefore = Array.from(item.childNodes).some((node) => {
+        if (node === paragraph) return false;
+        if (node.compareDocumentPosition(paragraph) & Node.DOCUMENT_POSITION_PRECEDING) return false;
+        return node.nodeType === Node.ELEMENT_NODE || Boolean(node.textContent?.trim());
+      });
+      if (hasContentBefore) paragraph.before(document.createElement("br"));
+      paragraph.replaceWith(...Array.from(paragraph.childNodes));
+    }
+  }
+}
+
 export interface SanitizeResult {
   html: string;
   warnings: string[];
@@ -72,6 +87,11 @@ export function sanitizeWechatHtml(html: string): SanitizeResult {
       warnings.push("已移除不安全或非 HTTPS 链接。");
     }
   }
+
+  // WeChat may split block paragraphs inside <li> into extra list entries.
+  // Flatten Obsidian's loose-list markup before uploading while preserving
+  // paragraph separation with a simple <br> that the editor accepts reliably.
+  flattenListItemParagraphs(document);
 
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_COMMENT);
   const comments: Node[] = [];
