@@ -2,6 +2,12 @@
 
 All notable changes to WeChat Draft Bridge are documented here.
 
+## 0.3.2
+
+- Preserve inherited body colors and explicit Markdown bold styling in WeChat drafts.
+- Render horizontal rules as stable WeChat-compatible line blocks while preserving theme spacing and color.
+- Show the actual generated HTML character count when the WeChat 20,000-character limit is exceeded.
+
 ## 0.3.1
 
 - Fix existing-draft validation for the top-level `news_item` returned by WeChat `draft/get`.

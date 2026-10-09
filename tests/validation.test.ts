@@ -24,5 +24,6 @@ describe("article validation", () => {
     expect(result.join(" ")).toContain("作者超过");
     expect(result.join(" ")).toContain("https");
     expect(result.join(" ")).toContain("20,000");
+    expect(result.join(" ")).toMatch(/20,00\d/);
   });
 });

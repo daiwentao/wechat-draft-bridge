@@ -6,7 +6,7 @@
 
 Preview, style, create, and safely update WeChat Official Account drafts from Obsidian.
 
-![Version](https://img.shields.io/badge/version-0.3.1-576b95)
+![Version](https://img.shields.io/badge/version-0.3.2-576b95)
 ![Obsidian](https://img.shields.io/badge/Obsidian-%E2%89%A51.11.4-7c3aed)
 ![Platform](https://img.shields.io/badge/platform-desktop-4b5563)
 ![License](https://img.shields.io/badge/license-MIT-green)

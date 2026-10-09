@@ -1,6 +1,7 @@
 export const DEFAULT_THEME_CSS = `
 .wechat-article { color: #222; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.8; overflow-wrap: break-word; }
 .wechat-article p { margin: 0 0 1em; letter-spacing: 0.02em; }
+.wechat-article strong, .wechat-article b { font-weight: bold; }
 .wechat-article h1 { margin: 1.5em 0 0.8em; font-size: 1.7em; line-height: 1.35; }
 .wechat-article h2 { margin: 1.5em 0 0.8em; padding-left: 0.65em; border-left: 4px solid #576b95; font-size: 1.4em; line-height: 1.4; }
 .wechat-article h3 { margin: 1.35em 0 0.7em; color: #3f4e68; font-size: 1.16em; }

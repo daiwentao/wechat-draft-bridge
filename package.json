@@ -1,6 +1,6 @@
 {
   "name": "wechat-draft-bridge",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": true,
   "description": "Preview and send Markdown notes to WeChat Official Account drafts with reusable CSS themes and safe draft updates.",
   "type": "module",

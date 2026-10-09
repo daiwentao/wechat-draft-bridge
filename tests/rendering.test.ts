@@ -73,6 +73,30 @@ describe("styled mode primitives", () => {
     expect(result.html).not.toContain("<style");
   });
 
+  it("materializes body color and bold weight directly on WeChat text elements", () => {
+    const inlined = inlineArticleCss(
+      "<p>普通正文 <strong>重点</strong> <b>加粗</b></p>",
+      ".markdown-here-wrapper { color: #595959; } strong, b { color: #ff6600; }"
+    );
+    const result = sanitizeWechatHtml(inlined.html);
+    const document = new DOMParser().parseFromString(result.html, "text/html");
+    const paragraph = document.querySelector("p") as HTMLElement;
+    const strong = document.querySelector("strong") as HTMLElement;
+    const bold = document.querySelector("b") as HTMLElement;
+
+    expect(paragraph.style.color).toBe("rgb(89, 89, 89)");
+    expect(strong.style.color).toBe("rgb(255, 102, 0)");
+    expect(bold.style.color).toBe("rgb(255, 102, 0)");
+    expect(strong.style.fontWeight).toBe("bold");
+    expect(bold.style.fontWeight).toBe("bold");
+    expect(strong.querySelector("span")).toBeNull();
+    expect(paragraph.querySelector(":scope > span")).toBeNull();
+    expect(paragraph.style.fontFamily).toBe("");
+
+    const sanitizedAgain = sanitizeWechatHtml(result.html);
+    expect(sanitizedAgain.html).toBe(result.html);
+  });
+
   it("supports Obsidian preview selectors and resolves theme color variables", () => {
     const result = inlineArticleCss(
       "<h2>标题</h2>",
@@ -90,6 +114,23 @@ describe("styled mode primitives", () => {
     );
     expect(result.html).toMatch(/class="[^"]*markdown-here-wrapper[^"]*"[^>]*style="[^"]*color:\s*#595959/i);
     expect(result.html).toMatch(/<blockquote style="[^"]*color:\s*#777777/i);
+  });
+
+  it("converts horizontal rules to stable WeChat line blocks", () => {
+    const inlined = inlineArticleCss(
+      "<p>正文</p><hr><p><strong>参考资料</strong></p>",
+      ".markdown-here-wrapper hr { border: none !important; border-top: 1px solid #eeeeee !important; margin: 3.5em 0 3.5em !important; height: 0 !important; }"
+    );
+    const result = sanitizeWechatHtml(inlined.html);
+    const document = new DOMParser().parseFromString(result.html, "text/html");
+    const line = Array.from(document.querySelectorAll<HTMLElement>("section"))
+      .find((element) => element.style.backgroundColor === "rgb(238, 238, 238)") as HTMLElement;
+
+    expect(document.querySelector("hr")).toBeNull();
+    expect(line.style.backgroundColor).toBe("rgb(238, 238, 238)");
+    expect(line.style.height).toBe("1px");
+    expect(line.parentElement?.style.paddingTop).toBe("3.5em");
+    expect(line.parentElement?.style.paddingBottom).toBe("3.5em");
   });
 
   it("warns about unsupported CSS features", () => {

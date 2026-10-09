@@ -9,7 +9,7 @@ export function validateArticle(article: RenderedArticle): string[] {
   if (count(article.metadata.digest) > 128) errors.push("摘要超过 128 个字符。");
   if (article.metadata.sourceUrl && !/^https:\/\//i.test(article.metadata.sourceUrl)) errors.push("阅读原文链接必须使用 https。");
   if (!article.html.trim()) errors.push("正文不能为空。");
-  if (article.html.length > 20_000) errors.push("正文 HTML 超过 20,000 字符，请精简排版或内容。");
+  if (article.html.length > 20_000) errors.push(`正文 HTML 为 ${article.html.length.toLocaleString("zh-CN")} 字符，超过 20,000 字符，请精简排版或内容。`);
   if (new TextEncoder().encode(article.html).byteLength > 1024 * 1024) errors.push("正文 HTML 超过 1 MB。");
   return errors;
 }
